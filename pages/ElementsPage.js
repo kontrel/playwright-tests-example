@@ -20,17 +20,17 @@ exports.ElementsPage = class ElementsPage {
     elementsPageOutput = ({outputField}) => this.page.locator(`div[id=output] > div > p[id=${outputField}]`);
 
     async checkPage() {
-        await expect(this.pageHeader).toHaveText('Elements');
+        await expect(this.page).toHaveURL(/elements/);
     }
 
     async selectTextBox() {
         await this.textBox.click();
-        await expect(this.pageHeader).toHaveText('Text Box');
+        await expect(this.page).toHaveURL(/text-box/);
     }
 
     async selectCheckBox() {
         await this.checkBox.click();
-        await expect(this.pageHeader).toHaveText('Check Box');
+        await expect(this.page).toHaveURL(/checkbox/);
     }
 
     async fillAndSubmitTextBox(data) {
